@@ -1,0 +1,30 @@
+﻿<Window x:Class="hangman.MainMenuWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:hangman"
+        mc:Ignorable="d"
+        Title="Hangman" Height="400" Width="600"
+        ResizeMode="CanMinimize">
+
+    <Grid Name="Grid">
+        <Label HorizontalAlignment="Center" FontSize="20" Content="LE JEU DU PENDU !" Margin="207,10,207,0" Height="74" VerticalAlignment="Top"/>
+        <Label Content="Cliquer" Margin="0,122,356,0" Height="34" VerticalAlignment="Top" HorizontalAlignment="Right" Width="47"/>
+        <TextBlock TextDecorations="None" FontStyle="Normal" Margin="243,127,0,215" HorizontalAlignment="Left" Width="29" RenderTransformOrigin="2.036,3.85">
+            <Hyperlink Click="Hyperlink_Click">
+                <Hyperlink.Style>
+                    <Style TargetType="Hyperlink"
+                           BasedOn="{StaticResource {x:Type Hyperlink}}">
+                        <Setter Property="Foreground" Value="black"/>
+                        <Setter Property="TextDecorations" Value="None"/>
+                    </Style>
+                </Hyperlink.Style>
+                ICI
+            </Hyperlink>
+        </TextBlock>
+        <Button VerticalAlignment="Bottom" HorizontalAlignment="Right" Name="About" Background="White" BorderThickness="0" Content="A propos" Margin="17,0,50,10" Grid.Row="1" Width="93" Click="AboutButtonClick"/>
+        <Button Name="Close" HorizontalAlignment="Right" FontWeight="bold" FontSize="13" BorderThickness="0" Background="White" Content="ou Fermer" Height="29" VerticalAlignment="Top" Click="CloseClick" Margin="0,122,124,0" Width="128"/>
+        <TextBlock TextDecorations="Baseline" FontWeight="Bold" Text="pour commencer" Margin="272,127,0,0" Height="29" VerticalAlignment="Top" HorizontalAlignment="Left" Width="115"/>
+    </Grid>
+</Window>

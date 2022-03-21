@@ -1,0 +1,45 @@
+﻿<Window x:Class="hangman.AboutWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:hangman"
+        mc:Ignorable="d"
+        Title="About" Height="500" Width="500"
+        WindowStyle="ToolWindow">
+    <Grid>
+        <Grid.RowDefinitions >
+            <RowDefinition Height="150" />
+            <RowDefinition />
+        </Grid.RowDefinitions>
+        <Grid Grid.Row="0">
+            <Label HorizontalAlignment="Center" FontFamily="Georgia" FontSize="15" Content="Le jeu du PENDU (HANGMAN)&#xD;&#xA;Project d'UX/UI exceptionnel et réalisé avec soin&#xD;&#xA;" VerticalAlignment="Top" Height="49" Margin="0,28,0,0"/>
+            <Button Name="Ouvrir" Width="18px" Height="18px" FontSize="10" Content="X" Click="AboutButtonFullScreenClick" Margin="0,5,5,0" VerticalAlignment="Top" HorizontalAlignment="Right"/>
+            <Label HorizontalAlignment="Center" Content="Vous aimez cette appli? Jetez un oeil à" Margin="0,82,0,36"/>
+            <TextBlock HorizontalAlignment="Center" TextDecorations="None" FontStyle="Normal" Margin="0,108,0,18"><Hyperlink RequestNavigate="HandleLinkClick" NavigateUri="https://carnezenzo.github.io/resume.pdf"><Run Text="mon CV !"/></Hyperlink></TextBlock>
+            <Button x:Name="About" FontSize="8" BorderThickness="0" Background="White" Content="Fermer" HorizontalAlignment="Left" Height="18" VerticalAlignment="Bottom" Width="41" Click="AboutButtonClick" Margin="5,0,0,5"/>
+        </Grid>
+        <Grid Grid.Row="1" Margin="10">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="Auto" />
+                <ColumnDefinition Width="*" />
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="*" />
+                <RowDefinition Height="Auto" />
+            </Grid.RowDefinitions>
+            <Label Grid.Row="0" Grid.ColumnSpan="2">Me contacter</Label>
+            <Label Grid.Row="1">Name:</Label>
+            <TextBox x:Name="TboxName" Grid.Row="1" Grid.Column="1" Margin="0,0,0,10" />
+            <Label Grid.Row="2">E-mail:</Label>
+            <TextBox x:Name="TboxMail" Grid.Row="2" Grid.Column="1" Margin="0,0,0,10" />
+            <Label Grid.Row="3">Comment:</Label>
+            <TextBox x:Name="TboxComment" Grid.Row="3" Grid.Column="1" AcceptsReturn="True" />
+            <Button x:Name="Reinit" Grid.Row="4" Grid.Column="0" Background="LightBlue" HorizontalAlignment="Left" Click="Reinit_Click">REINITIALISER</Button>
+            <Button x:Name="Envoyer" Grid.Row="4" Grid.Column="1" Background="Red" HorizontalAlignment="Right" Click="Envoyer_Click">Envoyer</Button>
+        </Grid>
+    </Grid>
+</Window>
