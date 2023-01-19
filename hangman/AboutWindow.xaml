@@ -5,24 +5,22 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:hangman"
         mc:Ignorable="d"
-        Title="About" Height="500" Width="500"
+        Title="About" Height="518" Width="503"
         WindowStyle="ToolWindow">
-    <Grid>
+    <Grid Margin="0,0,0,23">
         <Grid.RowDefinitions >
             <RowDefinition Height="150" />
             <RowDefinition />
         </Grid.RowDefinitions>
         <Grid Grid.Row="0">
-            <Label HorizontalAlignment="Center" FontFamily="Georgia" FontSize="15" Content="Le jeu du PENDU (HANGMAN)&#xD;&#xA;Project d'UX/UI exceptionnel et réalisé avec soin&#xD;&#xA;" VerticalAlignment="Top" Height="49" Margin="0,28,0,0"/>
+            <Label HorizontalAlignment="Center" FontFamily="Georgia" FontSize="15" Content="Le jeu In-Ta-Face&#xD;&#xA;Application d'UX/UI exceptionnelle et réalisée avec soin&#xD;&#xA;" VerticalAlignment="Top" Height="49" Margin="0,28,0,0"/>
             <Button Name="Ouvrir" Width="18px" Height="18px" FontSize="10" Content="X" Click="AboutButtonFullScreenClick" Margin="0,5,5,0" VerticalAlignment="Top" HorizontalAlignment="Right"/>
-            <Label HorizontalAlignment="Center" Content="Vous aimez cette appli? Jetez un oeil à" Margin="0,82,0,36"/>
-            <TextBlock HorizontalAlignment="Center" TextDecorations="None" FontStyle="Normal" Margin="0,108,0,18"><Hyperlink RequestNavigate="HandleLinkClick" NavigateUri="https://carnezenzo.github.io/resume.pdf"><Run Text="mon CV !"/></Hyperlink></TextBlock>
-            <Button x:Name="About" FontSize="8" BorderThickness="0" Background="White" Content="Fermer" HorizontalAlignment="Left" Height="18" VerticalAlignment="Bottom" Width="41" Click="AboutButtonClick" Margin="5,0,0,5"/>
         </Grid>
-        <Grid Grid.Row="1" Margin="10">
+        <Grid Grid.Row="1" Margin="10,10,10,22">
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="Auto" />
-                <ColumnDefinition Width="*" />
+                <ColumnDefinition Width="Auto" MinWidth="317" />
+                <ColumnDefinition />
             </Grid.ColumnDefinitions>
             <Grid.RowDefinitions>
                 <RowDefinition Height="Auto" />
@@ -30,16 +28,53 @@
                 <RowDefinition Height="Auto" />
                 <RowDefinition Height="*" />
                 <RowDefinition Height="Auto" />
+                <RowDefinition Height="Auto" />
             </Grid.RowDefinitions>
-            <Label Grid.Row="0" Grid.ColumnSpan="2">Me contacter</Label>
-            <Label Grid.Row="1">Name:</Label>
-            <TextBox x:Name="TboxName" Grid.Row="1" Grid.Column="1" Margin="0,0,0,10" />
+            <Label Grid.Row="0" Grid.ColumnSpan="2" Margin="0,-1,0,10" RenderTransformOrigin="0.5,0.5">
+                <Label.RenderTransform>
+                    <TransformGroup>
+                        <ScaleTransform ScaleY="-1"/>
+                        <SkewTransform/>
+                        <RotateTransform/>
+                        <TranslateTransform/>
+                    </TransformGroup>
+                </Label.RenderTransform>
+            </Label>
+            <Label Grid.Row="1">Nom:</Label>
+            <TextBox x:Name="TboxName" Grid.Row="1" Grid.Column="1" Grid.ColumnSpan="2" Margin="0,0,0,10" Opacity="0.6" Text="Nom" />
             <Label Grid.Row="2">E-mail:</Label>
-            <TextBox x:Name="TboxMail" Grid.Row="2" Grid.Column="1" Margin="0,0,0,10" />
-            <Label Grid.Row="3">Comment:</Label>
-            <TextBox x:Name="TboxComment" Grid.Row="3" Grid.Column="1" AcceptsReturn="True" />
-            <Button x:Name="Reinit" Grid.Row="4" Grid.Column="0" Background="LightBlue" HorizontalAlignment="Left" Click="Reinit_Click">REINITIALISER</Button>
-            <Button x:Name="Envoyer" Grid.Row="4" Grid.Column="1" Background="Red" HorizontalAlignment="Right" Click="Envoyer_Click">Envoyer</Button>
+            <TextBox x:Name="TboxMail" Grid.Row="2" Grid.Column="1" Margin="0,0,0,10" Opacity="0.6" Text="E-mail" />
+            <ComboBox x:Name="TboxMailExtension" Grid.Row="2"  Grid.Column="2" Margin="0,0,0,10" Opacity="0.6" >
+                <ComboBoxItem>.xyz</ComboBoxItem>
+                <ComboBoxItem>.tk</ComboBoxItem>
+                <ComboBoxItem>.gouv</ComboBoxItem>
+                <ComboBoxItem>.fr</ComboBoxItem>
+                <ComboBoxItem>.uk</ComboBoxItem>
+                <ComboBoxItem>.tl</ComboBoxItem>
+                <ComboBoxItem>.io</ComboBoxItem>
+                <ComboBoxItem>.com</ComboBoxItem>
+                <ComboBoxItem>.org</ComboBoxItem>
+            </ComboBox>
+            <Label Grid.Row="3">Commentaire:</Label>
+            <TextBox x:Name="TboxComment" Grid.Row="3" Grid.ColumnSpan="2" Grid.Column="1" AcceptsReturn="True" Opacity="0.6" Text="Commentaire"/>
+            <CheckBox x:Name="CheckTos" Grid.Row="4" Margin="5" IsChecked="True" />
+            <Label Grid.Row="4" Margin="34,0,0,0" Grid.ColumnSpan="2">Je n'accepte pas les Termes et Conditions</Label>
+            <Button x:Name="Reinit" Grid.Row="5" Grid.Column="0" Background="LightBlue" HorizontalAlignment="Left" Click="Reinit_Click" Width="64">Reinitialiser</Button>
+            <Button x:Name="Envoyer" Grid.Row="5" Grid.Column="2" Background="Red" HorizontalAlignment="Right" Click="Envoyer_Click" Width="43">Suivant</Button>
         </Grid>
+        <TextBlock TextDecorations="None" FontStyle="Italic" Foreground="Gray" HorizontalAlignment="Left" Width="65" RenderTransformOrigin="2.036,3.85" Margin="10,315,0,-20" Grid.Row="1">
+            <Hyperlink Click="AboutButtonClick">
+                <Hyperlink.Style>
+                    <Style TargetType="Hyperlink" >
+                        <Setter Property="Foreground" Value="Gray"/>
+                        <Setter Property="TextDecorations" Value="None"/>
+                        <Setter Property="FontStyle" Value="Italic"/>
+                        <Setter Property="Cursor" Value="Arrow"/>
+                    </Style>
+                </Hyperlink.Style>
+                ©lose
+            </Hyperlink>
+            2023
+        </TextBlock>
     </Grid>
 </Window>

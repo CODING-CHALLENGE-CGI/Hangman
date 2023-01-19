@@ -9,13 +9,16 @@
         ResizeMode="CanMinimize">
 
     <Grid Name="Grid">
-        <Label HorizontalAlignment="Center" FontSize="20" Content="LE JEU DU PENDU !" Margin="207,10,207,0" Height="74" VerticalAlignment="Top"/>
-        <Label Content="Cliquer" Margin="0,122,356,0" Height="34" VerticalAlignment="Top" HorizontalAlignment="Right" Width="47"/>
-        <TextBlock TextDecorations="None" FontStyle="Normal" Margin="243,127,0,215" HorizontalAlignment="Left" Width="29" RenderTransformOrigin="2.036,3.85">
+        <Button Name="Ouvrir" Width="18px" Height="18px" FontSize="10" Content="X" Click="AboutButtonFullScreenClick" Margin="0,5,5,0" VerticalAlignment="Top" HorizontalAlignment="Right"/>
+        <Label HorizontalAlignment="Center" FontSize="20" Content="In-Ta-Face" Margin="75,10,87,0" Height="87" VerticalAlignment="Top" Width="432"/>
+        <Label Content="Le mini-jeu de la mauvaise interface" Margin="0,45,162,0" Height="35" VerticalAlignment="Top" HorizontalAlignment="Right" Width="357"/>
+        <Label Content="Il s'agit d'une epreuve de rapidité, cliquez sur ICI dès" Margin="0,208,87,0" Height="69" VerticalAlignment="Top" HorizontalAlignment="Right" Width="328"/>
+        <Label Content="que vous vous sentez prêt." Margin="0,228,87,0" Height="69" VerticalAlignment="Top" HorizontalAlignment="Right" Width="328"/>
+        <Label Content="Merci de cliquer" Margin="0,254,315,0" Height="34" VerticalAlignment="Top" HorizontalAlignment="Right" Width="100"/>
+        <TextBlock TextDecorations="None" FontStyle="Normal" Margin="279,259,0,89" HorizontalAlignment="Left" Width="23" RenderTransformOrigin="2.036,3.85">
             <Hyperlink Click="Hyperlink_Click">
                 <Hyperlink.Style>
-                    <Style TargetType="Hyperlink"
-                           BasedOn="{StaticResource {x:Type Hyperlink}}">
+                    <Style TargetType="Hyperlink" >
                         <Setter Property="Foreground" Value="black"/>
                         <Setter Property="TextDecorations" Value="None"/>
                     </Style>
@@ -23,8 +26,17 @@
                 ICI
             </Hyperlink>
         </TextBlock>
-        <Button VerticalAlignment="Bottom" HorizontalAlignment="Right" Name="About" Background="White" BorderThickness="0" Content="A propos" Margin="17,0,50,10" Grid.Row="1" Width="93" Click="AboutButtonClick"/>
-        <Button Name="Close" HorizontalAlignment="Right" FontWeight="bold" FontSize="13" BorderThickness="0" Background="White" Content="ou Fermer" Height="29" VerticalAlignment="Top" Click="CloseClick" Margin="0,122,124,0" Width="128"/>
-        <TextBlock TextDecorations="Baseline" FontWeight="Bold" Text="pour commencer" Margin="272,127,0,0" Height="29" VerticalAlignment="Top" HorizontalAlignment="Left" Width="115"/>
+        <Button VerticalAlignment="Bottom" HorizontalAlignment="Right" Name="About" Background="White" BorderThickness="0" Content="A propos" Margin="0,0,10,17" Width="93" Click="AboutButtonClick"/>
+        <Button Name="Close" HorizontalAlignment="Right" BorderBrush="DarkGreen" FontWeight="bold" FontSize="13" Background="LightGreen" Content="C'est parti" Height="45" VerticalAlignment="Top" Click="CloseClick" Margin="0,129,140,0" Width="147"/>
+        <TextBlock TextDecorations="Baseline" FontWeight="Bold" Text="pour commencer" Margin="307,259,0,0" Height="29" VerticalAlignment="Top" HorizontalAlignment="Left" Width="100"/>
+        <Label Name="lblTime" Content="00:00" FontSize="38" HorizontalAlignment="Center" VerticalAlignment="Center" Height="62" Margin="225,288,162,21" Width="207" />
+        <Rectangle Fill="Red" Opacity="0.5" Margin="67,89,315,195"></Rectangle>
+        <Label Content="Missions :" Margin="0,95,429,0" Height="30" VerticalAlignment="Top" HorizontalAlignment="Right" Width="90"/>
+        <CheckBox IsHitTestVisible="False" Focusable="False" x:Name="TBoxForm" Margin="75,133,491,220"/>
+        <Label Content="Remplir son profil"  Margin="0,126,343,0" Height="25" VerticalAlignment="Top" HorizontalAlignment="Right" Width="148"/>
+        <Label Content="Gagner une partie de pendu" Margin="0,151,320,0" Height="25" VerticalAlignment="Top" HorizontalAlignment="Right" Width="171"/>
+        <CheckBox IsHitTestVisible="False" Focusable="False" x:Name="TBoxHang" Margin="75,156,491,197"/>
+
+
     </Grid>
 </Window>

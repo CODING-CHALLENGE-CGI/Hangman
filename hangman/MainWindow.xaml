@@ -5,10 +5,11 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:hangman"
         mc:Ignorable="d"
-        Title="Hangman" Height="400" Width="1000"
+        Background="LightGray"
+        Title="Hangman" Height="400" Width="716"
         ResizeMode="CanMinimize">
 
-    <Grid Name="Grid">
+    <Grid Name="Grid" Margin="0,0,4,0">
         <Grid.RowDefinitions >
             <RowDefinition Height="244.8" />
             <RowDefinition />
@@ -18,11 +19,22 @@
             <ColumnDefinition />
         </Grid.ColumnDefinitions>
 
-
-
-        <Button Name="StartButton" Background="White" BorderThickness="0" FontFamily="Constantia" Content="Début" Margin="59,42,0,0" Click="StartButtonClick" Height="35" VerticalAlignment="Top" HorizontalAlignment="Left"  Width="78" Grid.Row="1"/>
+        <TextBlock TextDecorations="None" FontStyle="Italic" Foreground="Gray" HorizontalAlignment="Left" Width="71" RenderTransformOrigin="2.036,3.85" Margin="478,98,0,8" Grid.Row="1" Grid.Column="1">
+            <Hyperlink Click="CloseClick">
+                <Hyperlink.Style>
+                    <Style TargetType="{x:Type Hyperlink}" >
+                        <Setter Property="Foreground" Value="Gray"/>
+                        <Setter Property="TextDecorations" Value="None"/>
+                        <Setter Property="FontStyle" Value="Italic"/>
+                        <Setter Property="Cursor" Value="Arrow"/>
+                    </Style>
+                </Hyperlink.Style>©lose
+            </Hyperlink> 2023
+        </TextBlock>
+        <Button x:Name="Ouvrir" Background="White" Width="21" Height="16" FontSize="10" Content="X" Click="AboutButtonFullScreenClick" Margin="0,10,10,0" VerticalAlignment="Top" HorizontalAlignment="Right" Grid.Column="1"/>
+        <Button Name="StartButton" Background="LightGray" BorderThickness="0" FontFamily="Constantia" Content="Début" Margin="59,42,0,0" Click="StartButtonClick" Height="35" VerticalAlignment="Top" HorizontalAlignment="Left"  Width="78" Grid.Row="1"/>
         <ListBox x:Name="CharList" FontFamily="Constantia" FontSize="15" HorizontalAlignment="Left" Margin="22,10,0,9.8" Width="98"/>
-        <Button Name="GuessButton" Background="White" BorderThickness="0" FontFamily="Constantia" Content="Faire une déduction" Margin="17,7,0,0" Click="GuessButtonClick" HorizontalAlignment="Left" VerticalAlignment="Top" Width="117" Height="35" Grid.Row="1"/>
+        <Button Name="GuessButton" Background="LightGray" BorderThickness="0" FontFamily="Constantia" Content="Faire une déduction" Margin="17,7,0,0" Click="GuessButtonClick" HorizontalAlignment="Left" VerticalAlignment="Top" Width="117" Height="35" Grid.Row="1"/>
         <Canvas Name="HangAll" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="22,-16,0,0" Height="0" Width="0">
             <Line x:Name="HangGround" X1="0" Y1="0"  X2="130" Y2="0"  HorizontalAlignment="Left" VerticalAlignment="Top" Stroke="Black" StrokeThickness="7" Canvas.Left="214" Canvas.Top="223"/>
             <Line x:Name="HangRope" X1="0" Y1="0"  X2="6" Y2="28" Canvas.Left="265" Canvas.Top="30"  StrokeThickness="3" Stroke="#FFA99494"/>
@@ -47,10 +59,8 @@
         </Canvas>
         <Label FontSize="15" Content="" Name="ShowWrongGuesses" Margin="303,146,0,0" Height="49" HorizontalAlignment="Left" VerticalAlignment="Top" Width="74" Grid.Column="1"/>
         <Label FontSize="15" Content="Vies restantes:" FontFamily="Constantia" Margin="302,117,0,0" HorizontalAlignment="Left" VerticalAlignment="Top" Grid.Column="1" Height="29" Width="107"/>
-        <TextBlock Grid.Column="1" FontSize="14" FontFamily="Constantia" HorizontalAlignment="Left" Margin="232,10,0,0" TextWrapping="Wrap" Text="Lettres utilisées:" VerticalAlignment="Top" Height="26" Width="145"/>
         <Label Content="Déduction du mot:" FontSize="14" FontFamily="Constantia" Grid.Column="1" HorizontalAlignment="Left" Margin="9.8,33.2,0,0" Grid.Row="1" VerticalAlignment="Top"/>
         <Label Name="TheWord" FontSize="30" Content="" Grid.Column="1" HorizontalAlignment="Left" Margin="115.8,12.2,0,0" Grid.Row="1" VerticalAlignment="Top"/>
-        <Button Name="About" Background="White" BorderThickness="0" Content="A propos" HorizontalAlignment="Left" Height="34" Margin="17,77,0,0" Grid.Row="1" VerticalAlignment="Top" Width="93" Click="AboutButtonClick"/>
-        <Button Name="Close" HorizontalAlignment="Right" FontSize="13" BorderThickness="0" Background="White" Content="Fermer" Height="18" VerticalAlignment="Top" Click="CloseClick" Margin="0,100,50,0" Grid.Column="1" Grid.Row="1" Width="103"/>
+        <Button Name="About" Background="LightGray" BorderThickness="0" Content="A propos" HorizontalAlignment="Left" Height="34" Margin="17,77,0,0" Grid.Row="1" VerticalAlignment="Top" Width="93" Click="AboutButtonClick"/>
     </Grid>
 </Window>

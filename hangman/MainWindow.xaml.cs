@@ -20,9 +20,14 @@ namespace hangman
         private bool startIsDisabled = false;
         private bool guessIsDisabled = true;
 
-        public MainWindow()
+        private bool hasWin = false;
+
+        MainMenuWindow Parent { get; set; }
+
+        public MainWindow(MainMenuWindow parent)
         {
             InitializeComponent();
+            Parent = parent;
             this.WindowStyle = WindowStyle.None;
             WrongBox = new TextBlock
             {
@@ -30,7 +35,6 @@ namespace hangman
                 FontSize = 20,
                 TextWrapping = TextWrapping.Wrap
             };
-            /* We hold wrong characters guessed in the WrongBox */
             _ = Grid.Children.Add(WrongBox);
 
         }
@@ -171,9 +175,14 @@ namespace hangman
 
             if (HasWon(ListofLabel))
             {
-                _ = MessageBox.Show("Fin de la partie! Appuyer sur Début pour rejouer!");
+                _ = MessageBox.Show("Bravo! Fin de la partie!");
                 SwapButtonState();
                 ClearTable();
+                if (!Parent.HangCompleted)
+                {
+                    hasWin = true;
+                    _ = MessageBox.Show("Bravo! Vous pouvez fermer cette page");
+                }
             }
         }
 
@@ -185,7 +194,7 @@ namespace hangman
                 if (TheHangMan[WrongGuesses].Visibility == Visibility.Hidden)
                 {
                     TheHangMan[WrongGuesses].Visibility = Visibility.Visible;
-                    WrongGuesses++; /* We add one wrong guess when we draw. */
+                    WrongGuesses++;
                     ShowWrongGuesses.Content = MaximumGuess - WrongGuesses;
                     if (WrongGuesses >= MaximumGuess)
                     {
@@ -213,14 +222,23 @@ namespace hangman
             {
                 return;
             }
-            AboutWindow abw = new AboutWindow();
+            AboutWindow abw = new AboutWindow(Parent);
             abw.Show();
             About.Visibility = Visibility.Hidden;
 
         }
 
+        private void AboutButtonFullScreenClick(object sender, RoutedEventArgs e)
+        {
+            this.WindowState = WindowState.Maximized;
+        }
+
         private void CloseClick(object sender, RoutedEventArgs e)
         {
+            if (hasWin)
+            {
+                Parent.HangCompleted = true;
+            }
             this.Close();
         }
     }

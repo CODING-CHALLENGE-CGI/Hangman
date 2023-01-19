@@ -18,9 +18,11 @@ namespace hangman
 
     public partial class AboutWindow : Window
     {
-        public AboutWindow()
+        MainMenuWindow Parent { get; set; }
+        public AboutWindow(MainMenuWindow parent)
         {
             InitializeComponent();
+            Parent = parent;
             this.WindowStyle = WindowStyle.None;
         }
 
@@ -44,7 +46,11 @@ namespace hangman
 
         private void Reinit_Click(object sender, RoutedEventArgs e)
         {
-            TboxComment.Text = TboxMail.Text = TboxName.Text = "";
+            TboxComment.Text = "Commentaire";
+            TboxMail.Text = "E-mail";
+            TboxName.Text = "Nom";
+            TboxMailExtension.SelectedItem = null;
+            CheckTos.IsChecked = true;
         }
 
         private void Envoyer_Click(object sender, RoutedEventArgs e)
@@ -57,10 +63,6 @@ namespace hangman
             if (TboxMail.Text.Length < 5)
             {
                 errorMsg = "Le mail doit faire plus de 5 caractères";
-            }
-            if (!TboxMail.Text.Contains("@gmail.com"))
-            {
-                errorMsg = "Le mail doit être un gmail.com";
             }
             if (!TboxMail.Text.Contains("@"))
             {
@@ -77,6 +79,14 @@ namespace hangman
             if (!TboxMail.Text.Contains(TboxName.Text))
             {
                 errorMsg = "Le mail doit contenir le nom";
+            }
+            if (string.IsNullOrEmpty(TboxMailExtension?.SelectedItem?.ToString()))
+            {
+                errorMsg = "Vous devez selectionner une extension de mail";
+            }
+            if (CheckTos.IsChecked == true)
+            {
+                errorMsg = "Vous ne devez pas ne pas accepter nos termes de service";
             }
             if (errorMsg != "")
             {
@@ -97,7 +107,10 @@ namespace hangman
                 }
                 else
                 {
-                    _ = MessageBox.Show(errorMsg, "Message envoyé avec succès!");
+                    _ = MessageBox.Show(errorMsg, "Message envoyé avec succès! Félicitation!");
+                    var view = new AboutInterestWindow(Parent);
+                    view.Show();
+                    this.Close();
                 }
             }
         }
