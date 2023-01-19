@@ -9,6 +9,8 @@
         ResizeMode="CanMinimize">
 
     <Grid Name="Grid">
+        <Button Name="Close" HorizontalAlignment="Right" BorderBrush="DarkGreen" FontWeight="bold" FontSize="13" Background="LightGreen" Content="C'est parti" Height="45" VerticalAlignment="Top" Click="CloseClick" Margin="0,129,140,0" Width="147"/>
+        <Button Name="About" Background="White" BorderThickness="0" Content="A propos" Margin="464,332,0,21" Click="AboutButtonClick" HorizontalAlignment="Left" Width="93"/>
         <Button Name="Ouvrir" Width="18px" Height="18px" FontSize="10" Content="X" Click="AboutButtonFullScreenClick" Margin="0,5,5,0" VerticalAlignment="Top" HorizontalAlignment="Right"/>
         <Label HorizontalAlignment="Center" FontSize="20" Content="In-Ta-Face" Margin="75,10,87,0" Height="87" VerticalAlignment="Top" Width="432"/>
         <Label Content="Le mini-jeu de la mauvaise interface" Margin="0,45,162,0" Height="35" VerticalAlignment="Top" HorizontalAlignment="Right" Width="357"/>
@@ -26,11 +28,9 @@
                 ICI
             </Hyperlink>
         </TextBlock>
-        <Button VerticalAlignment="Bottom" HorizontalAlignment="Right" Name="About" Background="White" BorderThickness="0" Content="A propos" Margin="0,0,10,17" Width="93" Click="AboutButtonClick"/>
-        <Button Name="Close" HorizontalAlignment="Right" BorderBrush="DarkGreen" FontWeight="bold" FontSize="13" Background="LightGreen" Content="C'est parti" Height="45" VerticalAlignment="Top" Click="CloseClick" Margin="0,129,140,0" Width="147"/>
         <TextBlock TextDecorations="Baseline" FontWeight="Bold" Text="pour commencer" Margin="307,259,0,0" Height="29" VerticalAlignment="Top" HorizontalAlignment="Left" Width="100"/>
         <Label Name="lblTime" Content="00:00" FontSize="38" HorizontalAlignment="Center" VerticalAlignment="Center" Height="62" Margin="225,288,162,21" Width="207" />
-        <Rectangle Fill="Red" Opacity="0.5" Margin="67,89,315,195"></Rectangle>
+        <Rectangle Fill="Red" Opacity="0.5" Margin="67,89,0,0" HorizontalAlignment="Left" Width="212" Height="87" VerticalAlignment="Top"></Rectangle>
         <Label Content="Missions :" Margin="0,95,429,0" Height="30" VerticalAlignment="Top" HorizontalAlignment="Right" Width="90"/>
         <CheckBox IsHitTestVisible="False" Focusable="False" x:Name="TBoxForm" Margin="75,133,491,220"/>
         <Label Content="Remplir son profil"  Margin="0,126,343,0" Height="25" VerticalAlignment="Top" HorizontalAlignment="Right" Width="148"/>

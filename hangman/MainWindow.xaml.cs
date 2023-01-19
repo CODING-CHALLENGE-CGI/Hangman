@@ -16,6 +16,7 @@ namespace hangman
         private int WrongGuesses; /* number of wrong guesses now */
         private readonly int MaximumGuess = 7;
         private readonly Word WordInstance = Word.WordPack;
+        private List<object> alreadyUsed = new List<object>();
 
         private bool startIsDisabled = false;
         private bool guessIsDisabled = true;
@@ -130,6 +131,7 @@ namespace hangman
 
         private void ClearTable()
         {
+            alreadyUsed.Clear();
             foreach (Label u in ListofLabel)
             {
                 u.Content = "";
@@ -161,7 +163,7 @@ namespace hangman
                     }
                 }
 
-                if (!flag)
+                if (!flag && !alreadyUsed.Contains(CharList.SelectedItem))
                 {
                     WrongBox.Text += " " + (char)CharList.SelectedItem;
                     DrawOneStep();
@@ -169,7 +171,20 @@ namespace hangman
                 }
                 if (CharList.SelectedItem != null)
                 {
-                    CharList.Items.Remove(CharList.SelectedItem);
+                    if (alreadyUsed.Contains(CharList.SelectedItem))
+                    {
+                        MessageBoxResult messageBoxResult = MessageBox.Show("Vous avez déjà utilisé cette lettre", "Recommencer la partie?", MessageBoxButton.YesNo);
+                        if (messageBoxResult == MessageBoxResult.Yes)
+                        {
+                            SwapButtonState();
+                            ClearTable();
+                        }
+                    }
+                    else
+                    {
+                        alreadyUsed.Add(CharList.SelectedItem);
+                    }
+                    //CharList.Items.Remove(CharList.SelectedItem);
                 }
             }
 
@@ -202,16 +217,27 @@ namespace hangman
                         _ = MessageBox.Show("Dommage!");
                         _ = MessageBox.Show("Le mot était " + WordNow);
                         _ = MessageBox.Show("Mais vous avez utilisé les lettres :");
-                        foreach (var letter in WrongBox.Text.Split())
-                        {
-                            if (!string.IsNullOrEmpty(letter))
-                                _ = MessageBox.Show(letter);
+                        var continueLoop = true;
+                        while (continueLoop) {
+                            DisplayWrongLetters();
+                            MessageBoxResult messageBoxResult = MessageBox.Show("Confirmation de choix", "Revoir les lettres?", MessageBoxButton.YesNo);
+                            continueLoop = messageBoxResult == MessageBoxResult.Yes;
                         }
+                        
                         _ = MessageBox.Show("Appuyez sur Début pour rejouer!");
                         SwapButtonState();
                         ClearTable();
                     }
                 }
+            }
+        }
+
+        private void DisplayWrongLetters()
+        {
+            foreach (var letter in WrongBox.Text.Split())
+            {
+                if (!string.IsNullOrEmpty(letter))
+                    _ = MessageBox.Show(letter);
             }
         }
 

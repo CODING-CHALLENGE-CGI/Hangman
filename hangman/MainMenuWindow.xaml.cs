@@ -73,6 +73,7 @@ namespace hangman
         {
             if (HangCompleted || FormCompleted)
             {
+                this.WindowState = WindowState.Normal;
                 MessageBox.Show("Attention", "Vous ne pouvez pas partir alors que vous avez completé une des deux pages!");
                 return;
             }

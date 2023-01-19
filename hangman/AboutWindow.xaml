@@ -7,7 +7,7 @@
         mc:Ignorable="d"
         Title="About" Height="518" Width="503"
         WindowStyle="ToolWindow">
-    <Grid Margin="0,0,0,23">
+    <Grid Height="465" VerticalAlignment="Top">
         <Grid.RowDefinitions >
             <RowDefinition Height="150" />
             <RowDefinition />
