@@ -32,7 +32,6 @@ namespace hangman
         private void AboutButtonClick(object sender, RoutedEventArgs e)
         {
             Parent.FormCompleted = true;
-            MessageBox.Show("Felicitation");
             this.Close();
         }
 

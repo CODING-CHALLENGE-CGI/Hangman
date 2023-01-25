@@ -34,7 +34,7 @@
         <Label Content="Missions :" Margin="0,95,429,0" Height="30" VerticalAlignment="Top" HorizontalAlignment="Right" Width="90"/>
         <CheckBox IsHitTestVisible="False" Focusable="False" x:Name="TBoxForm" Margin="75,133,491,220"/>
         <Label Content="Remplir son profil"  Margin="0,126,343,0" Height="25" VerticalAlignment="Top" HorizontalAlignment="Right" Width="148"/>
-        <Label Content="Gagner une partie de pendu" Margin="0,151,320,0" Height="25" VerticalAlignment="Top" HorizontalAlignment="Right" Width="171"/>
+        <Label Content="Terminer une partie de pendu" Margin="0,151,320,0" Height="25" VerticalAlignment="Top" HorizontalAlignment="Right" Width="171"/>
         <CheckBox IsHitTestVisible="False" Focusable="False" x:Name="TBoxHang" Margin="75,156,491,197"/>
 
 

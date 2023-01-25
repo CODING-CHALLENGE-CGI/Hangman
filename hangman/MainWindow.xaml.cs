@@ -196,7 +196,7 @@ namespace hangman
                 if (!Parent.HangCompleted)
                 {
                     hasWin = true;
-                    _ = MessageBox.Show("Bravo! Vous pouvez fermer cette page");
+                    _ = MessageBox.Show("Vous avez terminé une partie bravo! Vous pouvez fermer cette page");
                 }
             }
         }
@@ -224,9 +224,13 @@ namespace hangman
                             continueLoop = messageBoxResult == MessageBoxResult.Yes;
                         }
                         
-                        _ = MessageBox.Show("Appuyez sur Début pour rejouer!");
                         SwapButtonState();
                         ClearTable();
+                        if (!Parent.HangCompleted)
+                        {
+                            hasWin = true;
+                            _ = MessageBox.Show("Vous avez terminé une partie bravo! Vous pouvez fermer cette page");
+                        }
                     }
                 }
             }

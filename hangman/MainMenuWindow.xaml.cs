@@ -46,7 +46,7 @@ namespace hangman
                     currentTime = String.Format("{0:00}:{1:00}:{2:00}",
                         ts.Minutes, ts.Seconds, ts.Milliseconds / 10);
                     lblTime.Content = currentTime;
-                    MessageBox.Show("Félicitation", $"Bravo! Vous avez terminé en {currentTime}");
+                    MessageBox.Show("Félicitation", $"Bravo! Vous avez terminé en {currentTime} !");
                 }
             }
         }
